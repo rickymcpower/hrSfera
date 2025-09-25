@@ -47,6 +47,8 @@ hrSfera/
 │       └── package.json
 ├── docker-compose.yml               # Development environment setup
 ├── package.json                     # NPM workspaces configuration
+├── docs/
+│   └── screenshots/                 # Application screenshots directory
 ├── README.md                        # This file
 ├── CLAUDE.md                        # Claude Code guidance
 └── TEST_RESULTS.md                  # Comprehensive testing documentation
@@ -109,6 +111,48 @@ hrSfera/
 - **Email**: `maria.garcia@farmaciacentral.com`
 - **Password**: `password123`
 - **Capabilities**: Personal check-in/out, view own time history
+
+## 📱 Application Screenshots
+
+### Login Screen
+The modern authentication interface features:
+- Clean, responsive design optimized for mobile and desktop
+- Pharmacy branding with custom colors and logos
+- Multi-language support (Spanish, Catalan, English)
+- Secure email/password authentication
+- Professional healthcare-focused styling
+
+*Screenshot: Login interface showing the pharmaceutical branding and authentication form*
+
+### Employee Dashboard
+The employee interface provides:
+- One-click check-in/out functionality with real-time status updates
+- Current working time display with live timer
+- Personal time tracking history with detailed duration calculations
+- Today's entry summary with check-in/out times
+- Mobile-responsive design for tablet and smartphone usage
+
+*Screenshot: Employee dashboard showing check-in status, current working time, and personal history*
+
+### Administrator Panel
+The comprehensive admin interface includes:
+- Complete employee management with CRUD operations
+- Real-time employee list with role-based permissions
+- Time tracking oversight for all pharmacy staff
+- Add new employee dialog with form validation
+- Multi-tenant pharmacy data isolation
+
+*Screenshot: Admin panel displaying employee management interface with add employee functionality*
+
+### Time Tracking Interface
+Advanced time management features:
+- Detailed history view with date ranges and duration calculations
+- Export capabilities for reporting and payroll integration
+- Working time analytics and statistics
+- Calendar view for historical time entries
+- Duration summaries with total hours and days worked
+
+*Screenshot: Time tracking history showing detailed work entries with durations and analytics*
 
 ## 🏢 Feature Overview
 
