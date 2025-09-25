@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  database:
+    image: mysql:8.0
+    container_name: hrsfera-mysql
+    environment:
+      MYSQL_DATABASE: hrsfera
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_PASSWORD: secret
+      MYSQL_USER: hrsfera
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - hrsfera
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/frontend/Dockerfile
+    container_name: hrsfera-frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./apps/frontend:/app
+      - ./packages:/packages
+      - /app/node_modules
+    environment:
+      - VITE_API_URL=http://localhost:8000/api
+    depends_on:
+      - backend
+    networks:
+      - hrsfera
+
+  backend:
+    build:
+      context: .
+      dockerfile: docker/backend/Dockerfile
+    container_name: hrsfera-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./apps/backend:/var/www/html
+    environment:
+      - APP_ENV=local
+      - APP_DEBUG=true
+      - DB_CONNECTION=mysql
+      - DB_HOST=database
+      - DB_PORT=3306
+      - DB_DATABASE=hrsfera
+      - DB_USERNAME=hrsfera
+      - DB_PASSWORD=secret
+    depends_on:
+      - database
+    networks:
+      - hrsfera
+
+volumes:
+  mysql_data:
+
+networks:
+  hrsfera:
+    driver: bridge

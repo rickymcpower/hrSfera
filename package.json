@@ -1,0 +1,30 @@
+{
+  "name": "hrsfera-monorepo",
+  "version": "1.0.0",
+  "description": "hrSfera - Pharmacy employee check-in system monorepo",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:frontend": "npm run dev -w apps/frontend",
+    "dev:backend": "cd apps/backend && php artisan serve --port=8000",
+    "build": "npm run build:packages && npm run build:frontend",
+    "build:packages": "npm run build -w packages/shared-types && npm run build -w packages/api-client",
+    "build:frontend": "npm run build -w apps/frontend",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "clean": "npm run clean --workspaces --if-present",
+    "install:all": "npm install && npm run build:packages"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+}

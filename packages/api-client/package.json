@@ -1,0 +1,21 @@
+{
+  "name": "@hrsfera/api-client",
+  "version": "1.0.0",
+  "description": "API client for hrSfera backend",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "@hrsfera/shared-types": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
+  }
+}
